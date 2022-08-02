@@ -3,6 +3,7 @@ import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 function NewExpense(props) {
   const [isEditing, setisEditing] = useState(false);//destructuring 
+  //save the user entered expenses in the array with unique id 
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,

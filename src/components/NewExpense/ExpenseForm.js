@@ -32,21 +32,25 @@ function ExpenseForm(props) {
     //   enteredDate: event.target.value,
     // });
   };
-
+  // handle the submit button event 
   const submitHandler =(event) =>{
+    // prevent reloading 
     event.preventDefault();
-
+    // save the expense data 
     const expenseData={
         title:enteredTitle,
         amount:+enteredAmount,
         date:new Date(enteredDate)
     };
+    //save expenses data in array by passing the data to parent component 
     props.onSaveExpenseData(expenseData);
+    // after saving expense data clear all the input fields 
     setenteredTitle("");
     setenteredAmount("");
     setenteredDate("");
   };
   return (
+    // expense form component - consists of input fileds + add button + cancel button 
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
@@ -75,7 +79,8 @@ function ExpenseForm(props) {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="button" onClick={props.onCancel}>Cancel</button>
+      {/* on cancel render the add new expense butgton only  */}
+        <button type="button" onClick={props.onCancel}>Cancel</button> 
         <button type="submit">Add Expense</button>
         
       </div>

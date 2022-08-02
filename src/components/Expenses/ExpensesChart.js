@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "../Chart/Chart";
 function ExpensesChart(props) {
-  const chartDataPoints = [
+  const chartDataPoints = [ //monthly chart
     { label: "Jan", value: 0 },
     { label: "Feb", value: 0 },
     { label: "Mar", value: 0 },
@@ -15,10 +15,12 @@ function ExpensesChart(props) {
     { label: "Nov", value: 0 },
     { label: "Dec", value: 0 }
   ];
-  for (const expense of props.expenses){
+  //for every expense in the list calculate the total epense for every month 
+  for (const expense of props.expenses){ 
     const expenseMonth=expense.date.getMonth(); //starts at 0 
     chartDataPoints[expenseMonth].value +=expense.amount;
   }
+  // render chart according the calculated montly expenses 
   return <Chart dataPoints={chartDataPoints} />
 }
 

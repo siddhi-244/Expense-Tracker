@@ -3,10 +3,11 @@ import "./ExpensesList.css";
 import ExpenseItem from "./ExpenseItem";
 function ExpensesList(props) {
   if (props.items.length === 0) {
-    return <h2 className="expenses-list__fallback">Found no expenses</h2>;
+    return <h2 className="expenses-list__fallback">Found no expenses</h2>; //if there are no expenses , edge case handled 
   }
 
   return (
+    // render all the expenses according to the year 
     <ul className="expenses-list">
       {props.items.map( (expense) => (
       <ExpenseItem
