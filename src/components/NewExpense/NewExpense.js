@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 function NewExpense(props) {
-  const [isEditing, setisEditing] = useState(false);
+  const [isEditing, setisEditing] = useState(false);//destructuring 
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
@@ -12,15 +12,16 @@ function NewExpense(props) {
     setisEditing(false);
   };
   const startEditingHandler = () => {
-    setisEditing(true);
+    setisEditing(true);//changing states 
   };
   const stopEditingHandler = () => {
     setisEditing(false);
   }
   return (
     <div className="new-expense">
-      {!isEditing ? (
-        <button onClick={startEditingHandler}>Add New Expense</button>
+    {/* conditional rendering  if user clicks on add new expense then only show him the expense form */}
+      {!isEditing ? ( 
+        <button onClick={startEditingHandler}>Add New Expense</button> 
       ) : (
         <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancel={stopEditingHandler} />
       )}
